@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Food</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #D4E7C5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #000;
+        }
+
+        .dot {
+            height: 250px;
+            width: 250px;
+            background-color: #789461;
+            border-radius: 50%;
+            position: absolute;
+            border: 1px solid #294B29;
+            top: -50px;
+            left: -50px;
+            z-index: -1;
+        }
+
+        .dot2 {
+            height: 250px;
+            width: 250px;
+            background-color: #789461;
+            border-radius: 50%;
+            position: absolute;
+            border: 1px solid #294B29;
+            top: -150px;
+            left: 1650px;
+            z-index: -1;
+        }
+
+        .dot3 {
+            height: 172px;
+            width: 172px;
+            background-color: #50623A;
+            border-radius: 50%;
+            border: 1px solid #294B29;
+            position: absolute;
+            top: -76px;
+            left: 175px;
+            z-index: -1;
+        }
+
+        header {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .menu-options {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .menu-options button {
+            display: inline;
+            margin-right: 5px;
+            font-size: 14px;
+            color: white;
+            background-color: #789461;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .menu-options button:hover {
+            background-color: #789461;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .menu-options {
+            display: flex;
+            justify-content: space-around;
+            background-color: #50623A;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            width: 80%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background-color: #DBE7C9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            margin-top: 20px;
+            box-sizing: border-box;
+            overflow-x: auto;
+            border: 2px solid #294B29;
+        }
+
+        h2, h3 {
+            margin: 0;
+            color: #000;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 2px solid #000;
+            background-color: #99BC85;
+            color: #000000;
+            border-radius: 10px;
+        }
+
+        th, td {
+            border: 2px solid #000;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        th {
+            background-color: #50623A;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #99BC85;
+        }
+
+
+
+        .content-container {
+            border: 2px solid #444;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-sizing: border-box;
+            background-color: #555;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        ul li strong {
+            font-weight: bold;
+        }
+
+        .home-btn {
+            margin-top: 20px;
+        }
+
+        .home-btn a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-btn a:hover {
+            background-color: #555;
+        }
+
+        .notification-badge {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            margin-left: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <span class="dot"></span>
+    <span class="dot2"></span>
+    <span class="dot3"></span>
+    <header class="menu-options">
+        <button onclick="location.href='/menu'">Menu</button>
+        <button onclick="location.href='/add_food'">Add Food</button>
+        <button onclick="location.href='/delete_food_page'">Delete Food</button>
+        <button onclick="location.href='/stock_page'">Stock</button>
+        <button onclick="location.href='/alerts'">
+            Alerts
+            <span class="notification-badge">{{ total_expired_count }}</span>
+        </button>
+        <button onclick="location.href='/report'">Report</button>
+        <button onclick="location.href='/driver_login'">Logout</button>
+    </header>
+
+    <section>
+        <h2>Food Stock</h2>
+        <p>List of Food:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Food ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Expiry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for food in foods %}
+                    <tr>
+                        <td>{{ food.id }}</td>
+                        <td>{{ food.name }}</td>
+                        <td>{{ food.quantity }}</td>
+                        <td>{{ food.exp_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #4a515c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .menu-options {
+            background-color: #DBE7C9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 375px;
+            height: 710px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-options h2 {
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: #789461;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .menu-options button {
+            margin: 25px 0;
+            padding: 7px 18px;
+            border: 2px solid #294B29;
+            border-radius: 20px;
+            background-color: #789461;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: -1px -2px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            position: relative;
+            margin-left: 5px;
+        }
+
+        .menu-options button:hover {
+            background-color: #555;
+        }
+
+        .notification-badge {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            margin-left: 15px;
+            border: 1px solid black;
+        }
+
+
+        .dot {
+            height: 210px;
+            width: 210px;
+            background-color: #789461;
+            border-radius: 50%;
+            position: absolute;
+            border: 1px solid #294B29;
+            top: 605px;
+            left: -45px;
+        }
+
+        .dot2 {
+            height: 120px;
+            width: 120px;
+            background-color: #50623A;
+            border-radius: 50%;
+            border: 1px solid #294B29;
+            position: absolute;
+            top: 655px;
+            left: 147px;
+        }
+
+        .dot3 {
+            height: 180px;
+            width: 180px;
+            background-color: #294B29;
+            border-radius: 50%;
+            border: 1px solid #294B29;
+            position: absolute;
+            top: 625px;
+            left: 250px;
+        }
+
+            .dot4 {
+            height: 100px;
+            width: 100px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 310px;
+            left: 158px;
+        }
+            .dot5 {
+            height: 100px;
+            width: 100px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 315px;
+            left: 110px;
+        }
+            .dot6 {
+            height: 100px;
+            width: 100px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 315px;
+            left: 218px;
+        }
+            .dot7 {
+            height: 80px;
+            width: 80px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 270px;
+            left: 200px;
+        }
+            .dot8 {
+            height: 80px;
+            width: 80px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 270px;
+            left: 250px;
+        }
+            .dot9 {
+            height: 100px;
+            width: 100px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 315px;
+            left: 280px;
+        }
+            .dot10 {
+            height: 65px;
+            width: 65px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 290px;
+            left: 150px;
+        }
+
+            .dot11 {
+            height: 100px;
+            width: 100px;
+            background-color: #CEE0B2;
+            border-radius: 50%;
+            position: absolute;
+            top: 310px;
+            left: 158px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Menu, {{username}}</h1>
+    <br>
+    <div class="menu-options">
+        <span class="dot"></span>
+        <span class="dot2"></span>
+        <span class="dot3"></span>
+        <span class="dot4"></span>
+        <span class="dot5"></span>
+        <span class="dot6"></span>
+        <span class="dot7"></span>
+        <span class="dot8"></span>
+        <span class="dot9"></span>
+        <span class="dot10"></span>
+        <span class="dot11"></span>
+        <h2>Menu Options</h2>
+        <button onclick="location.href='/add_food'">Add Food</button>
+        <button onclick="location.href='/delete_food_page'">Delete Food</button>
+        <button onclick="location.href='/stock_page'">Stock</button>
+        <button onclick="location.href='/alerts'">
+            Alerts
+            <span class="notification-badge">{{ total_expired_count }}</span>
+        </button>
+        <button onclick="location.href='/report'">Report</button>
+        <button onclick="location.href='/driver_login'">Logout</button>
+    </div>
+</body>
+</html>

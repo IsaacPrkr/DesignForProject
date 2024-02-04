@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #4a515c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+
+
+        .success-message {
+            background-color: #DBE7C9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 500px;
+
+        }
+
+        .success-message h2 {
+            margin: 0;
+            font-size: 30px;
+            text-decoration: underline;
+            text-decoration-color: #789461;
+
+        }
+
+        .item-list {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+            background-color: #99BC85;
+            border-radius: 10px;
+        }
+
+        .item-list th, .item-list td {
+            border: 2px solid #000;
+            padding: 8px;
+
+
+        }
+
+        .home-link {
+            padding: 10px 30px;
+            font-size: 18px;
+            font-weight: 700;
+            border: 2px solid #294B29;
+            border-radius: 25px;
+            background-color: #50623A;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .home-link:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+            <span class="dot"></span>
+            <span class="dot2"></span>
+            <span class="dot3"></span>
+        <h2>Food Added Successfully!</h2>
+
+        <table class="item-list">
+            <thead>
+                <tr>
+                    <th>Food Name</th>
+                    <th>Quantity</th>
+                    <th>Expiry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+{% for food in added_foods|default([]) %}
+    <tr>
+        <td>{{ food.foodName }}</td>
+        <td>{{ food.quantity }}</td>
+        <td>{{ food.expiryDate }}</td>
+    </tr>
+{% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <a href="/menu" class="home-link">Back to Menu</a>
+    </div>
+</body>
+</html>
